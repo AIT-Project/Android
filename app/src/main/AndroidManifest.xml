@@ -12,26 +12,22 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".MainActivity"
-            android:theme="@style/MyMaterialTheme" >
-
-        </activity>
-        <activity android:name=".ProfMainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/MyMaterialTheme">
 
         </activity>
+        <activity
+            android:name=".ProfMainActivity"
+            android:theme="@style/MyMaterialTheme" />
         <activity android:name=".JsonParsing" />
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MyMaterialTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".push.Token"
-            android:theme="@style/MyMaterialTheme"/>
+            android:theme="@style/MyMaterialTheme"></activity>
+        <activity
+            android:name=".push.Token"
+            android:theme="@style/MyMaterialTheme" />
         <activity android:name=".NoticeActivity" />
 
         <receiver
@@ -40,6 +36,7 @@
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="com.project.prsystem" />
             </intent-filter>
         </receiver>
@@ -64,5 +61,14 @@
         <service
             android:name=".push.RegistrationIntentService1"
             android:exported="false" />
+
+        <activity android:name=".RegistActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
+
 </manifest>

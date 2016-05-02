@@ -1,5 +1,6 @@
 package com.project.prsystem;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -63,6 +64,7 @@ public class HomeFragment extends Fragment {
     GetSubjThread getSubjThread;
 
     MainFragment mainFragment;
+    //android.support.v4.app.FragmentManager manager;
     android.support.v4.app.FragmentManager manager;
     FragmentTransaction ft;
     android.support.v4.app.Fragment fragment;
@@ -78,6 +80,7 @@ public class HomeFragment extends Fragment {
             }
         }
     };
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -93,17 +96,17 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         rootView.findViewById(R.id.textView).setOnClickListener(handler);
-        manager = getSupportFragmentManager();
+        manager = getFragmentManager();
         ft = manager.beginTransaction();
 
         // 교수 정보 파일을 불러온다,
-        pref = getSharedPreferences(MyApplication.PROFINFO, 0);
+        pref = this.getActivity().getSharedPreferences(MyApplication.PROFINFO, 0);
 
         profInfo = Parsing.profInfoParsing(pref.getString(MyApplication.PROFINFO, ""));
 
-        recyclerView = (RecyclerView)rootView.findViewById(R.id.view);
-        adapter = new MyAdapter(this, R.layout.subejct, mySubejectList, manager);
-        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.view);
+        adapter = new MyAdapter(getContext(), R.layout.subejct, mySubejectList, manager);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
         getSubjThread = new GetSubjThread();
@@ -142,10 +145,11 @@ public class HomeFragment extends Fragment {
             }
         }
     };
+
     public void setDateMainFragment() {
         if (fragment == null) {
 
-            pref = getSharedPreferences(MyApplication.NOTICEINFO, 0);
+            pref = this.getActivity().getSharedPreferences(MyApplication.NOTICEINFO, 0);
             // pref.getString(MyApplication.NOTICEINFO, "");
 
             //LogManager.logPrint( pref.getString(MyApplication.NOTICEINFO+1, ""));
@@ -163,6 +167,7 @@ public class HomeFragment extends Fragment {
         }
 
     }
+
     void initData(ArrayList<String> image, ArrayList<String> code, ArrayList<String> name) {
         for (int i = 0; i < name.size(); i++) {
             mySubejectList.add(new SubjectItem(image.get(i), code.get(i), name.get(i)));
@@ -243,7 +248,7 @@ public class HomeFragment extends Fragment {
             JSONArray jAr2 = new JSONArray(jObject1.get("notice").toString());
             Notice noticeInfo = new Notice();
 
-            pref = getSharedPreferences(MyApplication.NOTICEINFO, 0);
+            pref = this.getActivity().getSharedPreferences(MyApplication.NOTICEINFO, 0);
             editor = pref.edit();
             editor.putInt(MyApplication.NOTICEINFO_SIZE, jAr2.length());
 
@@ -253,7 +258,6 @@ public class HomeFragment extends Fragment {
                 try {
                     // STring 으로 날라온 날짜 데이터를 다시 Date 형식으로 바꾸어주자,
                     DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-
                     noticeInfo.setNoti_number(notice.getInt("noti_number"))
                             .setNoti_comment(notice.getString("noti_comment"))
                             .setSubj_code_div(notice.getString("subj_code_div"))
@@ -262,12 +266,9 @@ public class HomeFragment extends Fragment {
                             .setNoti_mod_date(sdFormat.parse(notice.getString("noti_mod_date")))
                             .setNoti_name(notice.getString("noti_name"))
                             .setNoti_del(notice.getInt("noti_del"));
-
-
                     //     editor = pref.edit();
                     // 공지사항 목록을 i개 만들어서 json 형식으로 넣는다.
-
-                    pref = getSharedPreferences(MyApplication.NOTICEINFO, 0);
+                    pref = this.getActivity().getSharedPreferences(MyApplication.NOTICEINFO, 0);
                     editor = pref.edit();
                     editor.putString(MyApplication.NOTICEINFO + i, noticeInfo.toString());
 
@@ -281,8 +282,6 @@ public class HomeFragment extends Fragment {
                 }
 
             }
-
-
             /// 파싱데이터 커스텀 뷰로 보내기.
             initData(image, code, name);
         } catch (JSONException e) {

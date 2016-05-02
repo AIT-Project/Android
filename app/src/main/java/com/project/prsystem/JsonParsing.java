@@ -68,14 +68,11 @@ public class JsonParsing extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pref = getSharedPreferences(MyApplication.LOGIN, MODE_PRIVATE);
-
-
-        // view = (ListView)findViewById(R.id.listView); // inflate 한 것임.
-
-//            View headerView = view.inflate(this, R.layout.title_view, null);
-//            view.addHeaderView(headerView);
-//            subejctAdapter = new MySubjectAdapter(mySubejectList,this,R.layout.subejct);
-        //view.setAdapter(subejctAdapter);
+//        view = (ListView) findViewById(R.id.listView); // inflate 한 것임.
+//        View headerView = view.inflate(this, R.layout.title_view, null);
+//        view.addHeaderView(headerView);
+//        subejctAdapter = new MySubjectAdapter(mySubejectList, this, R.layout.subejct);
+//        view.setAdapter(subejctAdapter);
 
 
         recyclerView = (RecyclerView) findViewById(R.id.view);

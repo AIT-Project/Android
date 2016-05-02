@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.project.prsystem.push.RegistrationIntentService;
+import com.project.prsystem.push.Token;
 import com.project.prsystem.vo.ProfessorInfo;
 
 import org.json.JSONArray;
@@ -37,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-
+    Token token;
     LoginRequest login;
 
     EditText etUserID, etPassword;
@@ -48,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.bLogin:
+
                     doAction();
                     break;
                 case R.id.tvRegisterLink:
@@ -72,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
     void doAction() {
+        Intent intent = new Intent(this,RegistrationIntentService.class);
+        startService(intent);
         login = new LoginRequest();
         login.execute();
     }
@@ -183,6 +188,7 @@ public class LoginActivity extends AppCompatActivity {
         login.cancel(true);
 
         LogManager.logPrint("교수 로그인 허가 받음");
+
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }

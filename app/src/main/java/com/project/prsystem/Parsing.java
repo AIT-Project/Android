@@ -18,9 +18,9 @@ import java.util.Map;
 public class Parsing {
 
     // 교수 정보 파싱.
-    public static Map<String, String> profInfoParsing (String data) {
+    public static Map<String, String> profInfoParsing(String data) {
 
-        Map<String,String> map = new HashMap<String,String>();
+        Map<String, String> map = new HashMap<String, String>();
 
         try {
 //            LogManager.logPrint(data);
@@ -31,9 +31,9 @@ public class Parsing {
 
             ProfessorInfo profInfo = new ProfessorInfo();
 
-            map.put("prof_email",info.getString("prof_email"));
-            map.put("prof_name",info.getString("prof_name"));
-            map.put("prof_auth",info.getString("prof_auth"));
+            map.put("prof_email", info.getString("prof_email"));
+            map.put("prof_name", info.getString("prof_name"));
+            map.put("prof_auth", info.getString("prof_auth"));
             map.put("prof_id", Integer.toString(info.getInt("prof_id")));
 
         } catch (JSONException e) {
@@ -43,9 +43,9 @@ public class Parsing {
     }
 
     // 공지사항 파싱
-    public static Map<String, String> noticeInfoParsing (String data) {
+    public static Map<String, String> noticeInfoParsing(String data) {
 
-        Map<String,String> map = new HashMap<String,String>();
+        Map<String, String> map = new HashMap<String, String>();
         LogManager.logPrint(data);
         try {
 //            LogManager.logPrint(data);
@@ -57,8 +57,8 @@ public class Parsing {
             Notice notice = new Notice();
 
             map.put("noti_number", Integer.toString(info.getInt("noti_number")));
-            map.put("noti_name",info.getString("noti_name"));
-            map.put("noti_mod_date",info.getString("noti_mod_date"));
+            map.put("noti_name", info.getString("noti_name"));
+            map.put("noti_mod_date", info.getString("noti_mod_date"));
 
         } catch (JSONException e) {
             Log.d("tag", "Parse Error");

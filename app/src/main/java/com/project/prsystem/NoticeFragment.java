@@ -57,7 +57,7 @@ public class NoticeFragment extends Fragment implements View.OnClickListener {
     void doSend() {
         String sub = etSub.getText().toString();
         String con = etCon.getText().toString();
-        send = new Push(sub, con, "fpTjIVz4Ldg:APA91bGj3rK29V86cYVO9uLo2DP92XW58QbX2kTLCAwawWFEPUtDe4ZF_s_1-BwlAB-AAzGKDXw9t-k1tZbF_BEddbderBKtt9v57LF2UFJsJgfKfS2EW9tpXYtra3AAVheWsdMzKINI");
+        send = new Push(sub, con, "fLFueUGr4OY:APA91bFeJ3M9rficb4DDGXzCO70RPoMGxErnTOtKrkPTdpmjUslHWdHv4XaHEJ7jSXpoZNk7ACxan-TMWXP_S3qpkIvgVzw89MkO7Q6gSKp_-zrCyrOAxhZZSS_V6GuAebUw6V7Se30H");
         //send = new Push(sub, con, "fZTVAZFzNL4:APA91bE7lTZjMMdp9mZfds3YgfkHET0ZRIYhWR7wEDDrEvdPU46vsD14P9SmiHrlgCqfnaOPGrZ_L24i1yyEP4LmJrTWExLLKlgyxgk0PpWei0VrN-unCpSG_tnHt50AGhNkmQLUfAGO");
         //send = new Push(sub, con, "cynxkEwxOig:APA91bFI_ZKI97KhB-s9Jkn4vCAvke56WtI1pwcR4XW_yi-zQho9NmDwXrialoW6UOeWGw4UjHx3AnAMBJTffLsM4rkgDI5NmS_KCAh9ahFxgf1qZHDj0r_jJ9jOq3w4XN2YWHU9JV4K");
         //ssend = new Push(sub, con, "em1a9Xry8uI:APA91bGkKSX1x3Qw0m3CQrwoq-Itk8r7vgkUDZju6kXRfadq0_CLuKBFhdXsg2CkcqlpszB_yimX6H6vuo3F7xdwNN3gyS67AKQPaJSIR0PodE5ChUcgGEV266h991nL0XZqn4Qz3lIw");

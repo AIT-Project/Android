@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.skplanet.fragmentproject.FirstFragment"
-    android:background="#efb4b4">
+    android:background="@android:color/white">
 
     <TextView
         android:id="@+id/textView"
@@ -13,8 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="0dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        android:background="#b1f181" />
+        android:layout_marginTop="0dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main占쎌뿯占쎌젾"
+        android:text="Main Button"
         android:id="@+id/button7"
         android:layout_marginBottom="60dp"
         android:layout_alignParentBottom="true"

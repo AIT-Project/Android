@@ -61,7 +61,7 @@ public class Push {
                 URL url = new URL("https://android.googleapis.com/gcm/send");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestProperty("Authorization", "key=" + SERVER_API_KEY);
-                Log.d(TAG, "2-2");
+                Log.d(TAG, token);
                 conn.setRequestProperty("Content-Type", "application/json");
                 conn.setRequestMethod("POST");
                 conn.setDoOutput(true);
